@@ -6,7 +6,7 @@ using namespace std;
 
 template<typename T>
 class BaseClass {
-protected:
+public:
     virtual int GetSize() = 0;
     virtual void push(const T &num) = 0;
     virtual T pop() = 0;

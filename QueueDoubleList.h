@@ -15,26 +15,14 @@ public:
     Queue(Queue &stuff);
     Queue(Queue&& other)noexcept;
     ~Queue();
-    int GetSize();
-    void push(const T &num);
+    int GetSize() override;
+    void push(const T &num) override;
     T pop() override;
     T peek() override;
     Queue &operator=(const Queue &other)noexcept;
     Queue &operator=(Queue &&other)noexcept;
-    template<typename T> friend ostream &operator<<(ostream &stream, const Queue<T> &garbage)
-    {
-        if (garbage.Head == nullptr) return stream << "Your queue's empty \n";
-        thing<T> *temp = garbage.Head;
-        while (temp != nullptr)
-        {
-            stream << temp->num<< " ";
-            temp = temp->Next;
-        }
-        cout << endl;
-        return stream;
-    }
+    template<typename T> friend ostream &operator<<(ostream &stream, const Queue<T> &garbage);
 };
-
 
 
 template<typename T>
@@ -165,7 +153,7 @@ Queue<T> &Queue<T>::operator=(Queue &&other)noexcept {
     other.Head = other.Tail = nullptr;
     return *this;
 }
-template<typename T> ostream &operator<<(ostream &stream, const BaseClass<T> &garbage)
+template<typename T> ostream &operator<<(ostream &stream, const Queue<T> &garbage)
 {
     if (garbage.Head == nullptr) return stream << "Your queue's empty \n";
     thing<T> *temp = garbage.Head;
