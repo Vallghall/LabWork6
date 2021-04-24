@@ -2,6 +2,12 @@
 #define LABWORK6_A_QUEUEDOUBLELIST_H
 #include "Base.h"
 template<typename T>
+struct thing {
+    T num;
+    thing<T> *Prev;
+    thing<T> *Next;
+};
+template<typename T>
 class Queue : public BaseClass<T> {
     thing<T> *Head, *Tail;
 public:
