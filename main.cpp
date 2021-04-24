@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Queue.h"
+#include "QueueDoubleList.h"
+
 int main() {
     Queue<string> list;
     list.push("Van");
