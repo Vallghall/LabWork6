@@ -1,7 +1,23 @@
 #include <iostream>
 #include "QueueDoubleList.h"
 #include "QueueArray.h"
+template<typename T>
+void testPoint(BaseClass<T> *point) {
+    point->push("\nOh, I'm sorry\n");
+    point->push("Sorry about what ?..\n");
+    cout << "The size is " <<  point->GetSize();
+    cout << point->pop() << "-- Steve" << endl;
+    cout << point->pop() << "-- Bald guy" << endl;
+}
 
+template<typename T>
+void testLink(BaseClass<T> &link) {
+    link.push("\nLink? ");
+    link.push("Link! ");
+    cout << "The size is " << link.GetSize();
+    cout << link.pop() << "is out" << endl;
+    cout << link.pop() << "is out" << endl;
+}
 int main() {
     Queue<string> list;
     list.push("Van");
@@ -47,10 +63,11 @@ int main() {
 
     Queue<string> object;
     BaseClass<string> *point_you = &object;
-    point_you->push("\nOh, I'm sorry\n");
-    point_you->push("Sorry about what ?..\n");
-    cout << point_you << endl;
-    cout << point_you->GetSize();
-    cout << point_you->pop() << "-- Steve" << endl;
-    cout << point_you->pop() << "Bald guy" << endl;
+    cout << "test pointer" << endl;
+    testPoint(point_you);
+
+    QArray<string> subject;
+    BaseClass<string> &link_you = object;
+    cout << "test link" << endl;
+    testLink(link_you);
 }
